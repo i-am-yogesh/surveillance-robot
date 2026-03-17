@@ -1,0 +1,629 @@
+{
+  "_version": 2,
+  "_app": "CircuitForge",
+  "_exported": "2026-03-16T15:17:24.990Z",
+  "customComponents": [
+    {
+      "id": "custom_1773673451696",
+      "cat": "Custom",
+      "name": "ESP32",
+      "icon": "🔲",
+      "desc": "ESP32 with OV2640",
+      "color": "#444444",
+      "ports": [
+        {
+          "id": "5v_0",
+          "label": "5V",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_1",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io12_2",
+          "label": "IO12",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io13_3",
+          "label": "IO13",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io15_4",
+          "label": "IO15",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io14_5",
+          "label": "IO14",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io2_6",
+          "label": "IO2",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "io4_7",
+          "label": "IO4",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "3v3_8",
+          "label": "3V3",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "io16_9",
+          "label": "IO16",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "o01_10",
+          "label": "O01",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_11",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "vcc_12",
+          "label": "VCC",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "uor_13",
+          "label": "UOR",
+          "type": "uart",
+          "role": "rxd",
+          "pinColor": "#39ff14",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "uot_14",
+          "label": "UOT",
+          "type": "uart",
+          "role": "txd",
+          "pinColor": "#39ff14",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_15",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "right",
+          "isCustom": true
+        }
+      ],
+      "isCustom": true
+    },
+    {
+      "id": "custom_1773673596644",
+      "cat": "Custom",
+      "name": "DC MOTOR LEFT",
+      "icon": "🔲",
+      "desc": "Custom component",
+      "color": "#444444",
+      "ports": [
+        {
+          "id": "vcc_0",
+          "label": "VCC",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_1",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "shaft_2",
+          "label": "Shaft",
+          "type": "mechanical",
+          "role": "mech",
+          "pinColor": "#39ff14",
+          "side": "left",
+          "isCustom": true
+        }
+      ],
+      "isCustom": true
+    },
+    {
+      "id": "custom_1773673935225",
+      "cat": "Custom",
+      "name": "L268N driver",
+      "icon": "🔲",
+      "desc": "Custom component",
+      "color": "#444444",
+      "ports": [
+        {
+          "id": "12v_in_0",
+          "label": "12V IN",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_1",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "5v_out_2",
+          "label": "5V OUT",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "in1_3",
+          "label": "IN1",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "in2_4",
+          "label": "IN2",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "in3_5",
+          "label": "IN3",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "in4_6",
+          "label": "IN4",
+          "type": "data",
+          "role": "io",
+          "pinColor": "#00d4ff",
+          "side": "bottom",
+          "isCustom": true
+        },
+        {
+          "id": "out1_7",
+          "label": "OUT1",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_8",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "right",
+          "isCustom": true
+        },
+        {
+          "id": "out2_9",
+          "label": "OUT2",
+          "type": "power",
+          "role": "vcc",
+          "pinColor": "#ff6b35",
+          "side": "left",
+          "isCustom": true
+        },
+        {
+          "id": "gnd_10",
+          "label": "GND",
+          "type": "ground",
+          "role": "gnd",
+          "pinColor": "#4a5068",
+          "side": "left",
+          "isCustom": true
+        }
+      ],
+      "isCustom": true
+    }
+  ],
+  "placed": [
+    {
+      "id": "inst_1",
+      "compId": "custom_1773673451696",
+      "x": 621,
+      "y": 370
+    },
+    {
+      "id": "inst_2",
+      "compId": "battery",
+      "x": 127,
+      "y": 283
+    },
+    {
+      "id": "inst_3",
+      "compId": "dc-motor",
+      "x": 711,
+      "y": 12
+    },
+    {
+      "id": "inst_4",
+      "compId": "dc-motor",
+      "x": 714,
+      "y": 134
+    },
+    {
+      "id": "inst_5",
+      "compId": "custom_1773673596644",
+      "x": 25,
+      "y": 11
+    },
+    {
+      "id": "inst_6",
+      "compId": "custom_1773673596644",
+      "x": 18,
+      "y": 123
+    },
+    {
+      "id": "inst_7",
+      "compId": "servo",
+      "x": 315,
+      "y": 405
+    },
+    {
+      "id": "inst_9",
+      "compId": "custom_1773673935225",
+      "x": 332,
+      "y": 84
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_10",
+      "from": {
+        "instId": "inst_2",
+        "portId": "vcc"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "12v_in_0"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_11",
+      "from": {
+        "instId": "inst_2",
+        "portId": "gnd"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "gnd_1"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_12",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_1"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "gnd_1"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_14",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_1"
+      },
+      "to": {
+        "instId": "inst_7",
+        "portId": "gnd"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_15",
+      "from": {
+        "instId": "inst_5",
+        "portId": "vcc_0"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "out2_9"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_16",
+      "from": {
+        "instId": "inst_6",
+        "portId": "vcc_0"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "out2_9"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_17",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_10"
+      },
+      "to": {
+        "instId": "inst_5",
+        "portId": "gnd_1"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_18",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_10"
+      },
+      "to": {
+        "instId": "inst_6",
+        "portId": "gnd_1"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_19",
+      "from": {
+        "instId": "inst_9",
+        "portId": "out1_7"
+      },
+      "to": {
+        "instId": "inst_3",
+        "portId": "vcc"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_20",
+      "from": {
+        "instId": "inst_4",
+        "portId": "vcc"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "out1_7"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_21",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_8"
+      },
+      "to": {
+        "instId": "inst_3",
+        "portId": "gnd"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_22",
+      "from": {
+        "instId": "inst_9",
+        "portId": "gnd_8"
+      },
+      "to": {
+        "instId": "inst_4",
+        "portId": "gnd"
+      },
+      "valid": true,
+      "fromType": "ground",
+      "toType": "ground"
+    },
+    {
+      "id": "conn_23",
+      "from": {
+        "instId": "inst_9",
+        "portId": "5v_out_2"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "5v_0"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_24",
+      "from": {
+        "instId": "inst_9",
+        "portId": "5v_out_2"
+      },
+      "to": {
+        "instId": "inst_7",
+        "portId": "vcc"
+      },
+      "valid": true,
+      "fromType": "power",
+      "toType": "power"
+    },
+    {
+      "id": "conn_25",
+      "from": {
+        "instId": "inst_7",
+        "portId": "signal"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "io2_6"
+      },
+      "valid": true,
+      "fromType": "pwm",
+      "toType": "data"
+    },
+    {
+      "id": "conn_26",
+      "from": {
+        "instId": "inst_1",
+        "portId": "io12_2"
+      },
+      "to": {
+        "instId": "inst_9",
+        "portId": "in4_6"
+      },
+      "valid": true,
+      "fromType": "data",
+      "toType": "data"
+    },
+    {
+      "id": "conn_27",
+      "from": {
+        "instId": "inst_9",
+        "portId": "in3_5"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "io13_3"
+      },
+      "valid": true,
+      "fromType": "data",
+      "toType": "data"
+    },
+    {
+      "id": "conn_28",
+      "from": {
+        "instId": "inst_9",
+        "portId": "in2_4"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "io15_4"
+      },
+      "valid": true,
+      "fromType": "data",
+      "toType": "data"
+    },
+    {
+      "id": "conn_29",
+      "from": {
+        "instId": "inst_9",
+        "portId": "in1_3"
+      },
+      "to": {
+        "instId": "inst_1",
+        "portId": "io14_5"
+      },
+      "valid": true,
+      "fromType": "data",
+      "toType": "data"
+    }
+  ],
+  "nextId": 30
+}
