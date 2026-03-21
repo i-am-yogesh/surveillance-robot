@@ -1,10 +1,14 @@
 #include "esp_wifi.h"
 #include "esp_camera.h"
 #include <WiFi.h>
+#include "telegram_API.h"
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 /* WiFi Credentials */
 const char* ssid = "wifi";
-const char* password = "password";
+const char* password = "wifi";
 
 #define CAMERA_MODEL_AI_THINKER
 
@@ -24,6 +28,50 @@ const char* password = "password";
 #define VSYNC_GPIO_NUM    25
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
+
+#define MOTION_THRESHOLD   30     // pixel diff to count as "changed"
+#define MOTION_SENSITIVITY 500    // how many changed pixels = motion detected
+#define COOLDOWN_MS        10000
+#define CHECK_INTERVAL_MS  1000
+
+unsigned long lastWifiCheck = 0;
+
+void motionTask(void* pvParameters) {
+  uint8_t* prevFrame = nullptr;
+  unsigned long lastMotionTime = 0;
+
+  while (true) {
+    camera_fb_t* fb = esp_camera_fb_get();
+
+    if (fb) {
+      if (prevFrame == nullptr) {
+        prevFrame = (uint8_t*)malloc(fb->width * fb->height);
+        memcpy(prevFrame, fb->buf, fb->width * fb->height);
+        esp_camera_fb_return(fb);
+        vTaskDelay(pdMS_TO_TICKS(CHECK_INTERVAL_MS));
+        continue;
+      }
+
+      int changed = 0;
+      int total   = fb->width * fb->height;
+      for (int i = 0; i < total; i++) {
+        if (abs((int)fb->buf[i] - (int)prevFrame[i]) > MOTION_THRESHOLD)
+          changed++;
+      }
+
+      memcpy(prevFrame, fb->buf, total);
+      esp_camera_fb_return(fb);
+
+      unsigned long now = millis();
+      if (changed > MOTION_SENSITIVITY && (now - lastMotionTime > COOLDOWN_MS)) {
+        lastMotionTime = now;
+        sendTelegramMessage("Motion detected on CAM1!");
+      }
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(CHECK_INTERVAL_MS));
+  }
+}
 
 void startCameraServer();
 
@@ -82,7 +130,7 @@ void setup() {
   config.pin_pwdn     = PWDN_GPIO_NUM;
   config.pin_reset    = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
-  config.pixel_format = PIXFORMAT_JPEG;
+  config.pixel_format = PIXFORMAT_GRAYSCALE;
 
   /* Init with high specs to pre-allocate larger buffers */
   if (psramFound()) {
@@ -129,6 +177,16 @@ void setup() {
   Serial.print("Camera Ready! Use 'http://");
   Serial.print(WiFi.localIP());
   Serial.println("' to connect");
+  
+  xTaskCreatePinnedToCore(
+    motionTask,      // function
+    "TelegramTask",    // name
+    8192,              // stack size (bytes) — needs to be large for SSL
+    NULL,              // parameters
+    1,                 // priority
+    NULL,              // task handle
+    0                  // Core 0 ← main loop is on Core 1
+  );
 
   /* Flash LED confirmation blink */
   for (int i = 0; i < 5; i++) {
@@ -138,10 +196,10 @@ void setup() {
     ledcWrite(FlashPin, 0);
     delay(50);
   }
+
 }
 
-// Add this at the top of your .ino
-unsigned long lastWifiCheck = 0;
+
 
 void loop() {
   // Check WiFi every 5 seconds and reconnect if dropped

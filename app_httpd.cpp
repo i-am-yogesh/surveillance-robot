@@ -75,18 +75,6 @@ static esp_err_t capture_handler(httpd_req_t *req) {
   return res;
 }
 
-void streamTask(void *pvParameters) {
-  // Wait for stream server to be ready
-  while (stream_httpd == NULL) {
-    vTaskDelay(pdMS_TO_TICKS(100));
-  }
-  // This task just keeps alive — actual streaming is handled by httpd callbacks
-  while (true) {
-    vTaskDelay(pdMS_TO_TICKS(1000));
-  }
-}
-
-
 static esp_err_t stream_handler(httpd_req_t *req) {
   camera_fb_t *fb      = NULL;
   esp_err_t res        = ESP_OK;
@@ -215,6 +203,8 @@ static esp_err_t cmd_handler(httpd_req_t *req) {
     speed = val;
   }
   else if (!strcmp(variable, "servo")) {
+    Serial.println("Servo called");
+    Serial.println(val);
     if      (val > 650) val = 650;
     else if (val < 225) val = 325;
     /* v3.x: ledcWrite takes GPIO pin, not channel number */
